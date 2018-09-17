@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded",function(){
         game.play();
       });
     };
+    game.keynum
     // timer counts down from 60
     game.timer =() => {
       game.countdown = setInterval(function(){
@@ -39,11 +40,14 @@ document.addEventListener("DOMContentLoaded",function(){
       }
       }, 1000);
     }
-    // function to randomly select a word from a array
+    // function to randomly select a word from a array and splits it into an array
     game.newWord = () => {
       game.selectedWord = game.words[Math.floor(Math.random() * game.words.length)];
+      game.strSplit = game.selectedWord.split("");
       return game.selectedWord;
     };
+
+
     // function which starts the game
     game.play = () =>{
       game.timerDis = document.createElement('p');
@@ -51,11 +55,29 @@ document.addEventListener("DOMContentLoaded",function(){
       game.screen.appendChild(game.timerDis);
       game.displayedWord = document.createElement("h1");
       game.displayedWord.classList.add("gameText");
+      game.corrTyped = document.createElement('h3');
+      game.corrTyped.id = "CorrText";
+      game.timer();
       game.textAdder = document.createTextNode(game.newWord());
       game.displayedWord.appendChild(game.textAdder);
       game.screen.appendChild(game.displayedWord);
-      game.timer();
+      game.screen.appendChild(game.corrTyped);
+      console.log(game.strSplit);
+      document.addEventListener('keypress',function (e){
+        console.log(String.fromCharCode(e.keyCode));
+        if (String.fromCharCode(e.keyCode) == game.strSplit[0]){
+          game.strSplit.shift();
+          console.log(game.strSplit);
+          game.textAdder = document.createTextNode(String.fromCharCode(e.keyCode));
+          game.corrTyped.appendChild(game.textAdder);
 
+        }else{
+          game.displayedWord.innerHTML = "";
+          game.corrTyped.innerHTML = "";
+          game.textAdder = document.createTextNode(game.newWord());
+          game.displayedWord.appendChild(game.textAdder);
+        }
+      });
     };
     game.gameStart();
 });
