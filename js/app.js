@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded",function(){
   const game = new Object ();
     game.screen = document.getElementById('gameScreen');
     game.words = ["microphone",'telephone','bus','window','kangaroo','shoe','boat','apple','cup','bicycle'];
-    game.sec = 10;
+    game.sec = 0;
     game.score = 0;
     // function which displays the start screen for the game
     game.gameStart = () => {
@@ -54,9 +54,6 @@ document.addEventListener("DOMContentLoaded",function(){
         game.endTitle.parentNode.removeChild(game.endTitle);
         game.gamePlay();
       });
-
-
-
     };
     // timer counts down from 60
     game.timer =() => {
