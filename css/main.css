@@ -27,6 +27,17 @@
   color:#eee;
   font-size: 1.5em;
   text-align: right;
+  display: inline-block;
+  width: 25%;
+  margin-left: 75%;
+}
+#score{
+  color:#eee;
+  font-size: 1.5em;
+  text-align: left;
+  display: inline-block;
+  width: 25%;
+  margin-right: 75%;
 }
 /* footer */
 
