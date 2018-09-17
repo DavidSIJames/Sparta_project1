@@ -1,3 +1,22 @@
-p{
-  color: red;
+/* header */
+.jumbotron{
+  background-color: #333;
+  color: #0fd53b;
+}
+/* main */
+#gameScreen{
+  background-color: #000;
+  height: 500px;
+}
+
+.gameText{
+  color:#0fd53b;
+  text-align: center;
+}
+/* footer */
+
+#instructions{
+  background-color: #333;
+  color: #e6edf0;
+  padding-bottom: 55px;
 }
