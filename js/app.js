@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded",function(){
   const game = new Object ();
     game.screen = document.getElementById('gameScreen');
     game.words = ["microphone",'telephone','bus','window','kangaroo','shoe','boat','apple','cup','bicycle'];
-    game.sec = 10;
+    game.sec = 0;
     game.score = 0;
     // function which displays the start screen for the game
     game.gameStart = () => {
@@ -54,9 +54,6 @@ document.addEventListener("DOMContentLoaded",function(){
         game.endTitle.parentNode.removeChild(game.endTitle);
         game.gamePlay();
       });
-
-
-
     };
     // timer counts down from 60
     game.timer =() => {
@@ -105,12 +102,10 @@ document.addEventListener("DOMContentLoaded",function(){
       document.addEventListener('keypress',function (e){
         if (String.fromCharCode(e.keyCode) == game.strSplit[0]){
           game.strSplit.shift();
-          console.log(game.strSplit);
           game.textAdder = document.createTextNode(String.fromCharCode(e.keyCode));
           game.corrTyped.appendChild(game.textAdder);
           if (game.strSplit.length == 0){
             game.score++;
-            console.log(game.score);
             document.getElementById('score').innerHTML = game.score;
             game.wordClear();
           }
