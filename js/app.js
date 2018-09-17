@@ -102,12 +102,10 @@ document.addEventListener("DOMContentLoaded",function(){
       document.addEventListener('keypress',function (e){
         if (String.fromCharCode(e.keyCode) == game.strSplit[0]){
           game.strSplit.shift();
-          console.log(game.strSplit);
           game.textAdder = document.createTextNode(String.fromCharCode(e.keyCode));
           game.corrTyped.appendChild(game.textAdder);
           if (game.strSplit.length == 0){
             game.score++;
-            console.log(game.score);
             document.getElementById('score').innerHTML = game.score;
             game.wordClear();
           }
