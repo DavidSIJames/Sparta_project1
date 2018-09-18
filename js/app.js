@@ -1,48 +1,51 @@
 document.addEventListener("DOMContentLoaded",function(){
+  // create game object
   const game = new Object ();
+  // creation of properties and methods
   game.screen = document.getElementById('gameScreen');
   game.wrong = new Audio('sound/wrong2.wav');
   game.correct = new Audio('sound/correct.mp3');
   game.words = [];
   game.sec = 0;
   game.score = 0;
+  // method which fetches words of varying lengthsa from the datamuse API and pushes them into an array
   game.wordPull = () =>{
-    fetch('https://api.datamuse.com/words?sp=????&max=5')
+    fetch('https://api.datamuse.com/words?sp=????&max=100')
     .then((res) => res.json())
     .then((data) => {
       for(i=0;i<data.length;i++){
         game.words.push(data[i].word);
       }
     })
-    fetch('https://api.datamuse.com/words?sp=??????&max=5')
+    fetch('https://api.datamuse.com/words?sp=??????&max=100')
     .then((res) => res.json())
     .then((data) => {
       for(i=0;i<data.length;i++){
         game.words.push(data[i].word);
       }
     })
-    fetch('https://api.datamuse.com/words?sp=????????&max=5')
+    fetch('https://api.datamuse.com/words?sp=????????&max=100')
     .then((res) => res.json())
     .then((data) => {
       for(i=0;i<data.length;i++){
         game.words.push(data[i].word);
       }
     })
-    fetch('https://api.datamuse.com/words?sp=??????????&max=5')
+    fetch('https://api.datamuse.com/words?sp=??????????&max=100')
     .then((res) => res.json())
     .then((data) => {
       for(i=0;i<data.length;i++){
         game.words.push(data[i].word);
       }
     })
-    fetch('https://api.datamuse.com/words?sp=???&max=5')
+    fetch('https://api.datamuse.com/words?sp=???&max=100')
     .then((res) => res.json())
     .then((data) => {
       for(i=0;i<data.length;i++){
         game.words.push(data[i].word);
       }
     })
-    fetch('https://api.datamuse.com/words?sp=????????????&max=5')
+    fetch('https://api.datamuse.com/words?sp=????????????&max=100')
     .then((res) => res.json())
     .then((data) => {
       for(i=0;i<data.length;i++){
@@ -50,7 +53,6 @@ document.addEventListener("DOMContentLoaded",function(){
       }
     })
   }
-
   // function which displays the start screen for the game
   game.gameStart = () => {
     game.startTitle = document.createElement("h1");
@@ -59,17 +61,11 @@ document.addEventListener("DOMContentLoaded",function(){
     game.startTitle.appendChild(game.textAdder);
     game.screen.appendChild(game.startTitle);
     game.startBtn = document.createElement("h2");
+    game.startBtn.id = "startBtn";
     game.startBtn.classList.add("subGameText");
     game.textAdder = document.createTextNode("start");
     game.startBtn.appendChild(game.textAdder);
     game.screen.appendChild(game.startBtn);
-
-    game.startBtn.addEventListener('mouseenter', function(){
-      game.startBtn.style.color = "#c22929";
-    });
-    game.startTitle.addEventListener('mouseleave',function(){
-      game.startBtn.style.color = "#0fd53b";
-    });
     game.startBtn.addEventListener('click',function(){
       // removes the start screen elements from the game screen
       game.startTitle.parentNode.removeChild(game.startTitle);
@@ -77,6 +73,7 @@ document.addEventListener("DOMContentLoaded",function(){
       game.gamePlay();
     });
   };
+  // function which displays the end scree  for the game
   game.gameEnd = () =>{
     game.scoreDis.parentNode.removeChild(game.scoreDis);
     game.timerDis.parentNode.removeChild(game.timerDis);
@@ -94,12 +91,8 @@ document.addEventListener("DOMContentLoaded",function(){
     game.gameReset.classList.add('subGameText');
     game.gameReset.innerHTML = "Play Again?";
     game.screen.appendChild(game.gameReset);
-
     game.gameReset.addEventListener('click',function(){
-      game.gameReset.parentNode.removeChild(game.gameReset);
-      game.scoreText.parentNode.removeChild(game.scoreText);
-      game.endTitle.parentNode.removeChild(game.endTitle);
-      game.gamePlay();
+      location.reload();
     });
   };
 
@@ -120,6 +113,7 @@ document.addEventListener("DOMContentLoaded",function(){
     game.strSplit = game.selectedWord.split("");
     return game.selectedWord;
   };
+  // function which clears the currently displayed word from the screen and appends a new word
   game.wordClear = () =>{
     game.displayedWord.innerHTML = "";
     game.corrTyped.innerHTML = "";
@@ -129,7 +123,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
   // function which starts the game
   game.gamePlay = () =>{
-    game.sec = 60;
+    game.sec = 5;
     game.score = 0;
     game.scoreDis = document.createElement('p');
     game.scoreDis.id = "score";
@@ -165,6 +159,7 @@ document.addEventListener("DOMContentLoaded",function(){
       }
     });
   };
+  // invoking of methods
   game.wordPull();
   game.gameStart();
 });

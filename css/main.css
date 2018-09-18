@@ -3,23 +3,18 @@
   background-color: #333;
   color: #0fd53b;
   font-family: 'Source Code Pro', monospace;
+  margin-bottom: -10px;
 }
 /* main */
+#mid-screen{
+  background-color: #000;
+}
+/* game */
 #gameScreen{
   background-color: #000;
   height: 500px;
   font-family: 'Source Code Pro', monospace;
-}
-
-.subGameText{
-  color:#0fd53b;
-  text-align: center;
-
-}
-#CorrText{
-  color:#e84b11;
-  text-align: center;
-
+  border: 5px solid #0fd53b;
 }
 .gameText{
   color:#0fd53b;
@@ -27,28 +22,35 @@
   margin-top: 200px;
   padding-bottom: 60px;
 }
+.subGameText{
+  color:#0fd53b;
+  text-align: center;
+}
+#startBtn:hover{
+  color: #c22929;
+}
+#CorrText{
+  color:#e84b11;
+  text-align: center;
+}
 #timer{
   color:#eee;
   font-size: 1.5em;
   text-align: left;
   display: inline-block;
-
-
 }
 #score{
   color:#eee;
   font-size: 1.5em;
   text-align: right;
   display: inline-block;
-  padding-right: 450px;
-
-
+  padding-right: 430px;
 }
 /* footer */
-
 #instructions{
   background-color: #333;
   color: #e6edf0;
   padding-bottom: 5px;
   font-size: 1.25em;
+  margin-top: -20px;
 }
