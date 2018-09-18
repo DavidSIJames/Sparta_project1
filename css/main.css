@@ -2,20 +2,24 @@
 .jumbotron{
   background-color: #333;
   color: #0fd53b;
+  font-family: 'Source Code Pro', monospace;
 }
 /* main */
 #gameScreen{
   background-color: #000;
   height: 500px;
+  font-family: 'Source Code Pro', monospace;
 }
 
 .subGameText{
   color:#0fd53b;
   text-align: center;
+
 }
 #CorrText{
   color:#e84b11;
   text-align: center;
+
 }
 .gameText{
   color:#0fd53b;
@@ -26,23 +30,25 @@
 #timer{
   color:#eee;
   font-size: 1.5em;
-  text-align: right;
+  text-align: left;
   display: inline-block;
-  width: 25%;
-  margin-left: 75%;
+
+
 }
 #score{
   color:#eee;
   font-size: 1.5em;
-  text-align: left;
+  text-align: right;
   display: inline-block;
-  width: 25%;
-  margin-right: 75%;
+  padding-right: 450px;
+
+
 }
 /* footer */
 
 #instructions{
   background-color: #333;
   color: #e6edf0;
-  padding-bottom: 55px;
+  padding-bottom: 5px;
+  font-size: 1.25em;
 }

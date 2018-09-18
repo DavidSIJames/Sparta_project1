@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded",function(){
   const game = new Object ();
   game.screen = document.getElementById('gameScreen');
+  game.wrong = new Audio('sound/wrong2.wav');
+  game.correct = new Audio('sound/correct.mp3');
   game.words = [];
   game.sec = 0;
   game.score = 0;
@@ -104,7 +106,7 @@ document.addEventListener("DOMContentLoaded",function(){
   // timer counts down from 60
   game.timer =() => {
     game.countdown = setInterval(function(){
-      document.getElementById('timer').innerHTML = game.sec;
+      document.getElementById('timer').innerHTML = `Time: ${game.sec}`;
       game.sec--;
       if (game.sec < 0) {
         clearInterval(game.countdown);
@@ -129,13 +131,14 @@ document.addEventListener("DOMContentLoaded",function(){
   game.gamePlay = () =>{
     game.sec = 60;
     game.score = 0;
-    game.timerDis = document.createElement('p');
-    game.timerDis.id = "timer";
-    game.screen.appendChild(game.timerDis);
     game.scoreDis = document.createElement('p');
     game.scoreDis.id = "score";
-    game.scoreDis.innerHTML=game.score;
+    game.scoreDis.innerHTML=`Score: ${game.score}`;
     game.screen.appendChild(game.scoreDis);
+    game.timerDis = document.createElement('p');
+    game.timerDis.id = "timer";
+    game.timerDis.innerHTML = `Time: ${game.sec}`;
+    game.screen.appendChild(game.timerDis);
     game.displayedWord = document.createElement("h1");
     game.displayedWord.classList.add("gameText");
     game.corrTyped = document.createElement('h3');
@@ -151,12 +154,14 @@ document.addEventListener("DOMContentLoaded",function(){
         game.textAdder = document.createTextNode(String.fromCharCode(e.keyCode));
         game.corrTyped.appendChild(game.textAdder);
         if (game.strSplit.length == 0){
+          game.correct.play();
           game.score++;
-          document.getElementById('score').innerHTML = game.score;
+          document.getElementById('score').innerHTML =`Score: ${game.score}`;
           game.wordClear();
         }
       }else{
         game.wordClear();
+        game.wrong.play();
       }
     });
   };
