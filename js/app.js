@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
   // function which starts the game
   game.gamePlay = () =>{
-    game.sec = 5;
+    game.sec = 60;
     game.score = 0;
     game.scoreDis = document.createElement('p');
     game.scoreDis.id = "score";
