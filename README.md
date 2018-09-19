@@ -1,5 +1,5 @@
 # Sparta Project 1
-##Description
+## Description
 The aim of this project is to build a game of my choice in a week, with an __MVP__ (Minimum Viable Product) due wednesday at 11:00am.
 
 The game I decided to create is a speed typing game. In the game, the player has 60 seconds to type as many words as possible. If they type a word correctly they score a point, but if they make a mistake they don't score anything.
@@ -7,13 +7,13 @@ The game I decided to create is a speed typing game. In the game, the player has
 ![Alt Image Text](start_screen.png "Webpage screenshot")
 
 ![Alt Image Text](mid_game.png "mid-game screenshot")
-##Languages used
+## Languages used
 
 - HTML
 - CSS
 - Javascript
 
-##How to download
+## How to download
 1. If you do not have git installed follow this [guide](https://gist.github.com/derhuerst/1b15ff4652a867391f03)
 2. In your browser, navigate to this [page](https://github.com/DavidSIJames/sparta_project1)
 3. Open your Terminal and navigate to where you want to clone the repo.
@@ -30,7 +30,7 @@ The game I decided to create is a speed typing game. In the game, the player has
 6. You are now in the repo
 
 #### You can view the page [here](https://davidsijames.github.io/Sparta_project1/)
-##Challenges
+## Challenges
 The biggest challenge I came across was to receive information from an API. We haven't covered APIs or how to receive information from them yet, so I had to do research on how to use them. 
 
 The second biggest challenge was finding a way to compare key presses. It looked like an impossible problem, but once I broke it down into smaller steps, it was much easier to work through.  
